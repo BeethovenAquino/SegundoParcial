@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SegundoParcialEnel.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace SegundoParcialEnel.DAL
 {
     class Contexto : DbContext
     {
-        public DbSet<>  { get; set; }
-        public DbSet<>  { get; set; }
-        public DbSet<>  { get; set; }
+        public DbSet<Mantenimiento> mantenimientos { get; set; }
+        public DbSet<Vehiculos>  vehiculo{ get; set; }
+        public DbSet<MatenimientoDetalle> mantenimientoDetalle{ get; set; }
 
 
         public Contexto() : base("ConStr") { }

@@ -1,9 +1,9 @@
-
-
-create database SegundoParcialEnelDb
+drop table Vehiculos
+drop database SegundoParcialDb
+create database SegundoParcialDb
 GO
-use SegundoParcialEnelDb
-Create table Vehiculos
+use SegundoParcialDb
+Create table vehiculos
 (
 	VehiculoID int primary key identity(1,1),
 	Descripcion varchar(max),
@@ -13,4 +13,6 @@ Create table Vehiculos
 Go
 insert into Vehiculos(Descripcion,Mantenimiento)
 values('Toyota Corolla 2015 LE ',0);
+
+
 
