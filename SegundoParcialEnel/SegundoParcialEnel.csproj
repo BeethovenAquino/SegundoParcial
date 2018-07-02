@@ -141,7 +141,7 @@
     <None Include="Resources\Add_32.png" />
     <None Include="Resources\buscar2.png" />
     <None Include="Resources\Remover_32.png" />
-    <Content Include="Script\Sql.sql" />
+    <Content Include="DAL\Script\Sql.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
