@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace SegundoParcialEnel.UI.Regristro
 {
-    public partial class RegistroMantenimiento : Form
+    public partial class RegistroTalleres : Form
     {
-        public RegistroMantenimiento()
+        public RegistroTalleres()
         {
             InitializeComponent();
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void Buscarbutton_Click(object sender, EventArgs e)
         {
 
         }

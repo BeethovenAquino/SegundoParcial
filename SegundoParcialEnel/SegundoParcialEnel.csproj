@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\Vehiculos.cs" />
+    <Compile Include="BLL\VehiculosBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="DAL\IRepositorio.cs" />
     <Compile Include="DAL\Repositorio.cs" />
@@ -77,17 +77,35 @@
     <Compile Include="UI\Consulta\CosultaPersonas.Designer.cs">
       <DependentUpon>CosultaPersonas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Regristro\RegistroDeArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Regristro\RegistroDeArticulos.Designer.cs">
+      <DependentUpon>RegistroDeArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Regristro\RegistroEntradaArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Regristro\RegistroEntradaArticulos.Designer.cs">
+      <DependentUpon>RegistroEntradaArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Regristro\RegistroMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Regristro\RegistroMantenimiento.Designer.cs">
       <DependentUpon>RegistroMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Regristro\RegistroMantenimientoDetalle.cs">
+    <Compile Include="UI\Regristro\RegistroTalleres.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Regristro\RegistroMantenimientoDetalle.Designer.cs">
-      <DependentUpon>RegistroMantenimientoDetalle.cs</DependentUpon>
+    <Compile Include="UI\Regristro\RegistroTalleres.Designer.cs">
+      <DependentUpon>RegistroTalleres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Regristro\RegistroVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Regristro\RegistroVehiculos.Designer.cs">
+      <DependentUpon>RegistroVehiculos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -108,11 +126,20 @@
     <EmbeddedResource Include="UI\Consulta\CosultaPersonas.resx">
       <DependentUpon>CosultaPersonas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Regristro\RegistroDeArticulos.resx">
+      <DependentUpon>RegistroDeArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Regristro\RegistroEntradaArticulos.resx">
+      <DependentUpon>RegistroEntradaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Regristro\RegistroMantenimiento.resx">
       <DependentUpon>RegistroMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Regristro\RegistroMantenimientoDetalle.resx">
-      <DependentUpon>RegistroMantenimientoDetalle.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Regristro\RegistroTalleres.resx">
+      <DependentUpon>RegistroTalleres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Regristro\RegistroVehiculos.resx">
+      <DependentUpon>RegistroVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

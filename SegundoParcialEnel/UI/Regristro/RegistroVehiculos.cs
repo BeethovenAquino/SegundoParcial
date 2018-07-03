@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace SegundoParcialEnel.UI.Regristro
 {
-    public partial class RegistroMantenimiento : Form
+    public partial class RegistroVehiculos : Form
     {
-        public RegistroMantenimiento()
+        public RegistroVehiculos()
         {
             InitializeComponent();
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

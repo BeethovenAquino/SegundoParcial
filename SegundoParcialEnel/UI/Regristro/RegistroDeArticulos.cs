@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SegundoParcialEnel.UI.Regristro
 {
-    public partial class RegistroMantenimientoDetalle : Form
+    public partial class RegistroDe_Vehiculos : Form
     {
-        public RegistroMantenimientoDetalle()
+        public RegistroDe_Vehiculos()
         {
             InitializeComponent();
         }
