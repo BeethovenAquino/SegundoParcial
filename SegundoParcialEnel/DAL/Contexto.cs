@@ -9,12 +9,11 @@ namespace SegundoParcialEnel.DAL
 {
     class Contexto : DbContext
     {
-        public DbSet<Mantenimiento> mantenimientos { get; set; }
+        public DbSet<Mantenimiento> Mantenimiento { get; set; }
         public DbSet<Vehiculos>  Vehiculo{ get; set; }
-        public DbSet<MatenimientoDetalle> mantenimientoDetalle{ get; set; }
-
-        
-
+        public DbSet<Articulos> Articulos { get; set; }
+        public DbSet<Taller> Taller { get; set; }
+        public DbSet<EntradaArticulos> EntradaArticulos { get; set; }
 
         public Contexto() : base("ConStr") { }
 

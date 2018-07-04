@@ -50,12 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ArticulosBLL.cs" />
+    <Compile Include="BLL\EntradaAriticulos.cs" />
+    <Compile Include="BLL\MantenimientoBLL.cs" />
+    <Compile Include="BLL\TallerBLL.cs" />
     <Compile Include="BLL\VehiculosBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="DAL\IRepositorio.cs" />
     <Compile Include="DAL\Repositorio.cs" />
+    <Compile Include="Entidades\Articulos.cs" />
+    <Compile Include="Entidades\EntradaArticulos.cs" />
     <Compile Include="Entidades\Mantenimiento.cs" />
     <Compile Include="Entidades\MatenimientoDetalle.cs" />
+    <Compile Include="Entidades\Taller.cs" />
     <Compile Include="Entidades\Vehiculos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

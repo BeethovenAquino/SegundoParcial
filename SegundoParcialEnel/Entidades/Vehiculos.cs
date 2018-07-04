@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SegundoParcialEnel.Entidades
 {
-    class Vehiculos
+    public class Vehiculos
     {
         [Key]
         public int VehiculoID { get; set; }

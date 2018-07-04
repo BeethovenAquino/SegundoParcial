@@ -6,13 +6,17 @@ using System.Text;
 
 namespace SegundoParcialEnel.Entidades
 {
-    class Mantenimiento
+   public class Mantenimiento
     {
         [Key]
         public int MantenimientoID { get; set; }
         public DateTime Fecha { get; set; }
         public string Vehiculo { get; set; }
         public string Taller { get; set; }
+
+        public Mantenimiento()
+        {
+        }
 
         public Mantenimiento(int mantenimientoID, DateTime fecha, string vehiculo, string taller)
         {

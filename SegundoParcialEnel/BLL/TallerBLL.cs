@@ -9,16 +9,16 @@ using System.Text;
 
 namespace SegundoParcialEnel.BLL
 {
-    public class VehiculosBLL
+   public class TallerBLL
     {
-        public static bool Guardar(Vehiculos vehiculo)
+        public static bool Guardar(Taller taller)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                if (contexto.Vehiculo.Add(vehiculo) != null)
+                if (contexto.Taller.Add(taller) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
@@ -34,14 +34,14 @@ namespace SegundoParcialEnel.BLL
 
         }
 
-        public static bool Modificar(Vehiculos vehiculo)
+        public static bool Modificar(Taller taller)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(vehiculo).State = EntityState.Modified;
+                contexto.Entry(taller).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -63,11 +63,11 @@ namespace SegundoParcialEnel.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Vehiculos vehiculos = contexto.Vehiculo.Find(id);
+                Taller taller = contexto.Taller.Find(id);
 
-                if (vehiculos != null)
+                if (taller != null)
                 {
-                    contexto.Entry(vehiculos).State = EntityState.Deleted;
+                    contexto.Entry(taller).State = EntityState.Deleted;
                 }
 
                 if (contexto.SaveChanges() > 0)
@@ -85,48 +85,48 @@ namespace SegundoParcialEnel.BLL
             return paso;
         }
 
-        public static Vehiculos Buscar(int id)
+        public static Taller Buscar(int id)
         {
             Contexto contexto = new Contexto();
-           Vehiculos vehiculos = new Vehiculos();
+            Taller taller = new Taller();
             try
             {
-                vehiculos = contexto.Vehiculo.Find(id);
+                taller = contexto.Taller.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return vehiculos;
+            return taller;
         }
 
-        public static List<Vehiculos> GetList(Expression<Func<Vehiculos, bool>> expression)
+        public static List<Taller> GetList(Expression<Func<Taller, bool>> expression)
         {
-            List<Vehiculos> vehiculos = new List<Vehiculos>();
+            List<Taller> taller = new List<Taller>();
             Contexto contexto = new Contexto();
             try
             {
-                vehiculos = contexto.Vehiculo.Where(expression).ToList();
+                taller = contexto.Taller.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return vehiculos;
+            return taller;
         }
 
-        public static string RetornarDescripcion(string descripcio)
+        public static string RetornarNombre(string Nombre)
         {
-            string descripcion = string.Empty;
-            var lista = GetList(x => x.Descripcion.Equals(descripcio));
+            string nombre = string.Empty;
+            var lista = GetList(x => x.Nombre.Equals(Nombre));
             foreach (var item in lista)
             {
-                descripcion = item.Descripcion;
+                nombre = item.Nombre;
             }
 
-            return descripcion;
+            return nombre;
         }
     }
 }
