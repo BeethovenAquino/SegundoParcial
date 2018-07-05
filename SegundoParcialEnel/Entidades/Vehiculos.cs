@@ -11,7 +11,9 @@ namespace SegundoParcialEnel.Entidades
         [Key]
         public int VehiculoID { get; set; }
         public string Descripcion { get; set; }
-        public int Mantenimiento { get; set; }
+        public int Cantidad { get; set; }
+        public int Precio { get; set; }
+        public int TotalMantenimiento { get; set; }
 
         public Vehiculos()
         {
