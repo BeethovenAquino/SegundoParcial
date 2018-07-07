@@ -41,6 +41,41 @@ namespace SegundoParcialEnel.UI.Regristro
 
         }
 
+        private void LlenarCampos(Mantenimiento mantenimiento)
+        {
+            MantenimientoIDnumericUpDown.Value = 0;
+            FechadateTimePicker.Value = DateTime.Now;
+            CantidadnumericUpDown.Value = 0;
+            ImportetextBox.Clear();
+            SubTotaltextBox.Clear();
+            ITBIStextBox.Clear();
+            TotaltextBox.Clear();
+            ValidarerrorProvider.Clear();
+            DetalleMantenimientodataGridView.DataSource = null;
+
+
+            MatenimientoDetalle m = new MatenimientoDetalle();
+
+            MantenimientoIDnumericUpDown.Value = mantenimiento.MantenimientoID;
+            FechadateTimePicker.Value = mantenimiento.Fecha;
+            SubTotaltextBox.Text = m.Subtotal.ToString();
+            ITBIStextBox.Text = m.ITBIS.ToString();
+            TotaltextBox.Text = m.total.ToString();
+
+            foreach (var item in mantenimiento.Detalle)
+            {
+                subtotal += item.importe;
+
+            }
+            SubTotaltextBox.Text = subtotal.ToString();
+            //Cargar el detalle al Grid
+            DetalleMantenimientodataGridView.DataSource = mantenimiento.Detalle;
+
+            //Ocultar columnas
+           /* DetalleMantenimientodataGridView.Columns["Id"].Visible = false;
+            DetalleMantenimientodataGridView.Columns["CiudadId"].Visible = false*/
+        }
+
         private void LlenarComboBox()
         {
             Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
@@ -248,6 +283,7 @@ namespace SegundoParcialEnel.UI.Regristro
             ITBIStextBox.Clear();
             TotaltextBox.Clear();
             ValidarerrorProvider.Clear();
+            DetalleMantenimientodataGridView.DataSource = null;
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
@@ -288,9 +324,55 @@ namespace SegundoParcialEnel.UI.Regristro
                 ITBIStextBox.Clear();
                 TotaltextBox.Clear();
                 ValidarerrorProvider.Clear();
+                DetalleMantenimientodataGridView.DataSource = null;
             }
             else
                 MessageBox.Show("No se pudo guardar!!", "Fallo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            if (ValidarE())
+            {
+
+
+                MessageBox.Show("Favor Llenar Casilla!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                int id = Convert.ToInt32(MantenimientoIDnumericUpDown.Value);
+                if (BLL.MantenimientoBLL.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MantenimientoIDnumericUpDown.Value = 0;
+                    FechadateTimePicker.Value = DateTime.Now;
+                    CantidadnumericUpDown.Value = 0;
+                    ImportetextBox.Clear();
+                    SubTotaltextBox.Clear();
+                    ITBIStextBox.Clear();
+                    TotaltextBox.Clear();
+                    ValidarerrorProvider.Clear();
+                    DetalleMantenimientodataGridView.DataSource = null;
+                }
+                else
+                    MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(MantenimientoIDnumericUpDown.Value);
+            Mantenimiento mantenimiento = BLL.MantenimientoBLL.Buscar(id);
+
+            if (mantenimiento != null)
+            {
+                LlenarCampos(mantenimiento);
+
+            }
+            else
+                MessageBox.Show("No se encontro!", "Fallo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

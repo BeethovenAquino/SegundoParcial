@@ -16,6 +16,7 @@ namespace SegundoParcialEnel.BLL
             bool paso = false;
 
             Contexto contexto = new Contexto();
+            Vehiculos vehiculos = new Vehiculos();
             try
             {
                 if (contexto.Mantenimiento.Add(mantenimiento) != null)
@@ -25,6 +26,7 @@ namespace SegundoParcialEnel.BLL
                         contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
                     }
 
+                   // contexto.Vehiculo.Find(mantenimiento.VehiculoID).Mantenimiento += registrodeMantenimiento.Total;
                     contexto.SaveChanges(); //Guardar los cambios
                     paso = true;
                 }
@@ -49,8 +51,8 @@ namespace SegundoParcialEnel.BLL
 
                 foreach (var item in mantenimiento.Detalle)
                 {
-                    var ciudad = contexto.Articulos.Find(item.ArticuloID);
-                    ciudad.Inventario += item.Cantidad;
+                    var articulo = contexto.Articulos.Find(item.ArticuloID);
+                    articulo.Inventario += item.Cantidad;
                 }
 
                 contexto.Mantenimiento.Remove(mantenimiento);
@@ -136,12 +138,12 @@ namespace SegundoParcialEnel.BLL
                 foreach (var item in visitaant.Detalle)//recorrer el detalle aterior
                 {
                     //restar todas las visitas
-                    contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
+                    contexto.Articulos.Find(item.ArticuloID).Inventario += item.Cantidad;
 
                     //determinar si el item no esta en el detalle actual
                     if (!mantenimiento.Detalle.ToList().Exists(v => v.ID == item.ID))
                     {
-                        contexto.Articulos.Find(item.ArticuloID).Inventario += item.Cantidad;
+                        contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
                         item.Articulos = null; //quitar la ciudad para que EF no intente hacerle nada
                         contexto.Entry(item).State = EntityState.Deleted;
                     }
@@ -151,7 +153,7 @@ namespace SegundoParcialEnel.BLL
                 foreach (var item in mantenimiento.Detalle)
                 {
                     //Sumar todas las visitas
-                    contexto.Articulos.Find(item.ArticuloID).Inventario += item.Cantidad;
+                    contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
 
                     //Muy importante indicar que pasara con la entidad del detalle
                     var estado = item.ID > 0 ? EntityState.Modified : EntityState.Added;

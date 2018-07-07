@@ -36,18 +36,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.VehiculocomboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Buscarbutton = new System.Windows.Forms.Button();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.Removerbutton = new System.Windows.Forms.Button();
-            this.Eliminarbutton = new System.Windows.Forms.Button();
-            this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Guardarbutton = new System.Windows.Forms.Button();
             this.DetalleMantenimientodataGridView = new System.Windows.Forms.DataGridView();
-            this.Agregarbutton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.SubTotaltextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -59,6 +53,12 @@
             this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ITBIStextBox = new System.Windows.Forms.TextBox();
             this.ValidarerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Removerbutton = new System.Windows.Forms.Button();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
+            this.Nuevobutton = new System.Windows.Forms.Button();
+            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.Agregarbutton = new System.Windows.Forms.Button();
+            this.Buscarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleMantenimientodataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
@@ -124,17 +124,6 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Taller";
             // 
-            // Buscarbutton
-            // 
-            this.Buscarbutton.Image = global::SegundoParcialEnel.Properties.Resources.buscar2;
-            this.Buscarbutton.Location = new System.Drawing.Point(345, 23);
-            this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(83, 60);
-            this.Buscarbutton.TabIndex = 20;
-            this.Buscarbutton.Text = "Buscar";
-            this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Buscarbutton.UseVisualStyleBackColor = true;
-            // 
             // ImportetextBox
             // 
             this.ImportetextBox.Location = new System.Drawing.Point(570, 278);
@@ -178,53 +167,6 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Articulo";
             // 
-            // Removerbutton
-            // 
-            this.Removerbutton.Image = global::SegundoParcialEnel.Properties.Resources.Remover_32;
-            this.Removerbutton.Location = new System.Drawing.Point(59, 527);
-            this.Removerbutton.Name = "Removerbutton";
-            this.Removerbutton.Size = new System.Drawing.Size(103, 60);
-            this.Removerbutton.TabIndex = 55;
-            this.Removerbutton.Text = "Remover";
-            this.Removerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Removerbutton.UseVisualStyleBackColor = true;
-            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
-            // 
-            // Eliminarbutton
-            // 
-            this.Eliminarbutton.Image = global::SegundoParcialEnel.Properties.Resources.borrar_32;
-            this.Eliminarbutton.Location = new System.Drawing.Point(547, 622);
-            this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(86, 50);
-            this.Eliminarbutton.TabIndex = 54;
-            this.Eliminarbutton.Text = "Eliminar";
-            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Eliminarbutton.UseVisualStyleBackColor = true;
-            // 
-            // Nuevobutton
-            // 
-            this.Nuevobutton.Image = global::SegundoParcialEnel.Properties.Resources.new_32;
-            this.Nuevobutton.Location = new System.Drawing.Point(426, 622);
-            this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(86, 50);
-            this.Nuevobutton.TabIndex = 53;
-            this.Nuevobutton.Text = "Nuevo";
-            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Nuevobutton.UseVisualStyleBackColor = true;
-            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
-            // 
-            // Guardarbutton
-            // 
-            this.Guardarbutton.Image = global::SegundoParcialEnel.Properties.Resources.save_32;
-            this.Guardarbutton.Location = new System.Drawing.Point(313, 622);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(86, 50);
-            this.Guardarbutton.TabIndex = 52;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
-            // 
             // DetalleMantenimientodataGridView
             // 
             this.DetalleMantenimientodataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -232,18 +174,6 @@
             this.DetalleMantenimientodataGridView.Name = "DetalleMantenimientodataGridView";
             this.DetalleMantenimientodataGridView.Size = new System.Drawing.Size(666, 201);
             this.DetalleMantenimientodataGridView.TabIndex = 51;
-            // 
-            // Agregarbutton
-            // 
-            this.Agregarbutton.Image = global::SegundoParcialEnel.Properties.Resources.Add_32;
-            this.Agregarbutton.Location = new System.Drawing.Point(713, 262);
-            this.Agregarbutton.Name = "Agregarbutton";
-            this.Agregarbutton.Size = new System.Drawing.Size(75, 51);
-            this.Agregarbutton.TabIndex = 50;
-            this.Agregarbutton.Text = "Agregar";
-            this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Agregarbutton.UseVisualStyleBackColor = true;
-            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // label9
             // 
@@ -331,10 +261,83 @@
             // 
             this.ValidarerrorProvider.ContainerControl = this;
             // 
+            // Removerbutton
+            // 
+            this.Removerbutton.Image = global::SegundoParcialEnel.Properties.Resources.Remover_32;
+            this.Removerbutton.Location = new System.Drawing.Point(59, 527);
+            this.Removerbutton.Name = "Removerbutton";
+            this.Removerbutton.Size = new System.Drawing.Size(103, 60);
+            this.Removerbutton.TabIndex = 55;
+            this.Removerbutton.Text = "Remover";
+            this.Removerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
+            // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.Image = global::SegundoParcialEnel.Properties.Resources.borrar_32;
+            this.Eliminarbutton.Location = new System.Drawing.Point(547, 622);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(86, 50);
+            this.Eliminarbutton.TabIndex = 54;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
+            // 
+            // Nuevobutton
+            // 
+            this.Nuevobutton.Image = global::SegundoParcialEnel.Properties.Resources.new_32;
+            this.Nuevobutton.Location = new System.Drawing.Point(426, 622);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(86, 50);
+            this.Nuevobutton.TabIndex = 53;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
+            // 
+            // Guardarbutton
+            // 
+            this.Guardarbutton.Image = global::SegundoParcialEnel.Properties.Resources.save_32;
+            this.Guardarbutton.Location = new System.Drawing.Point(313, 622);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(86, 50);
+            this.Guardarbutton.TabIndex = 52;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            // 
+            // Agregarbutton
+            // 
+            this.Agregarbutton.Image = global::SegundoParcialEnel.Properties.Resources.Add_32;
+            this.Agregarbutton.Location = new System.Drawing.Point(713, 262);
+            this.Agregarbutton.Name = "Agregarbutton";
+            this.Agregarbutton.Size = new System.Drawing.Size(75, 51);
+            this.Agregarbutton.TabIndex = 50;
+            this.Agregarbutton.Text = "Agregar";
+            this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
+            // 
+            // Buscarbutton
+            // 
+            this.Buscarbutton.Image = global::SegundoParcialEnel.Properties.Resources.buscar2;
+            this.Buscarbutton.Location = new System.Drawing.Point(345, 23);
+            this.Buscarbutton.Name = "Buscarbutton";
+            this.Buscarbutton.Size = new System.Drawing.Size(83, 60);
+            this.Buscarbutton.TabIndex = 20;
+            this.Buscarbutton.Text = "Buscar";
+            this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
+            // 
             // RegistroMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SegundoParcialEnel.Properties.Resources.Fondo;
             this.ClientSize = new System.Drawing.Size(800, 711);
             this.Controls.Add(this.ITBIStextBox);
             this.Controls.Add(this.PrecionumericUpDown);

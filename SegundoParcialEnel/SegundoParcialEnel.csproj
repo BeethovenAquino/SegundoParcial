@@ -172,6 +172,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="DAL\Script\Scripts.sql" />
+    <None Include="Resources\TALLER.jpg" />
+    <None Include="Resources\Fondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

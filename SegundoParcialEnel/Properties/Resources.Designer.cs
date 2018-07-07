@@ -93,6 +93,16 @@ namespace SegundoParcialEnel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo {
+            get {
+                object obj = ResourceManager.GetObject("Fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imprimir_32 {
             get {
                 object obj = ResourceManager.GetObject("imprimir_32", resourceCulture);
@@ -126,6 +136,16 @@ namespace SegundoParcialEnel.Properties {
         internal static System.Drawing.Bitmap save_32 {
             get {
                 object obj = ResourceManager.GetObject("save_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TALLER {
+            get {
+                object obj = ResourceManager.GetObject("TALLER", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

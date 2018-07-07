@@ -2,7 +2,7 @@ CREATE DATABASE SegundoParcialDb
 GO
 USE SegundoParcialDb
 GO
-Create table Mantenimientos(
+create table Mantenimientoes(
 
 	  MantenimientoID int primary key identity(1,1),
         Fecha date
@@ -11,7 +11,7 @@ Create table Mantenimientos(
 );
 go
 go
-create table MantenimientoDetalles(
+create table MatenimientoDetalles(
 
 		  ID int primary key identity(1,1),
          MantenimientoID int, 
@@ -19,12 +19,14 @@ create table MantenimientoDetalles(
          VehiculoID int,
          TallerID int,
        Cantidad int,
-       Precio int,
-       importe int,
+       Precio money,
+       importe money,
        total money,
        Subtotal money,
         ITBIS money
 );
+go
+go
 create table EntradaArticulos(
 	  EntradaID int primary key identity(1,1),
         Fecha date,
@@ -58,3 +60,8 @@ create table Vehiculos
 
 );
 go
+
+
+
+select *From Mantenimientoes
+select *From MatenimientoDetalles
