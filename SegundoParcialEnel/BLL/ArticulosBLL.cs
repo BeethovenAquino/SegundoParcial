@@ -128,5 +128,12 @@ namespace SegundoParcialEnel.BLL
 
             return descripcion;
         }
+        
+        public static int CalcularGanancia(int costo, int precio)
+        {
+            
+            return Convert.ToInt32(costo) * Convert.ToInt32(precio)/100;
+            
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SegundoParcialEnel.Entidades;
+﻿using SegundoParcialEnel.DAL;
+using SegundoParcialEnel.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,17 @@ namespace SegundoParcialEnel.UI.Regristro
         public RegistroEntradaArticulos()
         {
             InitializeComponent();
+            LlenarComboBox();
+        }
+
+        private void LlenarComboBox()
+        {
+            
+            Repositorio<Articulos> repositori = new Repositorio<Articulos>(new Contexto());
+
+            ArticulocomboBox.DataSource = repositori.GetList(c => true);
+            ArticulocomboBox.ValueMember = "ArticuloId";
+            ArticulocomboBox.DisplayMember = "Descripcion";
         }
 
         private EntradaArticulos LlenarClase()
@@ -148,6 +160,16 @@ namespace SegundoParcialEnel.UI.Regristro
             }
             else
                 MessageBox.Show("No se encontro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void RegistroEntradaArticulos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CantidadnumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
     }

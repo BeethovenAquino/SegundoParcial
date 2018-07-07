@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.MantenimientoIDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,25 +39,31 @@
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.PreciotextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.CantidadtextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Removerbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
-            this.Nuevo2button = new System.Windows.Forms.Button();
-            this.Guardar2button = new System.Windows.Forms.Button();
-            this.DetalleCotizacionesdataGridView = new System.Windows.Forms.DataGridView();
+            this.Nuevobutton = new System.Windows.Forms.Button();
+            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.DetalleMantenimientodataGridView = new System.Windows.Forms.DataGridView();
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.SubTotaltextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.TallercomboBox = new System.Windows.Forms.ComboBox();
+            this.ArticulocomboBox = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ITBIStextBox = new System.Windows.Forms.TextBox();
+            this.ValidarerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIDnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DetalleCotizacionesdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleMantenimientodataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidarerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -144,13 +151,6 @@
             this.label5.TabIndex = 62;
             this.label5.Text = "Importe";
             // 
-            // PreciotextBox
-            // 
-            this.PreciotextBox.Location = new System.Drawing.Point(381, 278);
-            this.PreciotextBox.Name = "PreciotextBox";
-            this.PreciotextBox.Size = new System.Drawing.Size(100, 20);
-            this.PreciotextBox.TabIndex = 61;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -159,13 +159,6 @@
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 60;
             this.label6.Text = "Precio";
-            // 
-            // CantidadtextBox
-            // 
-            this.CantidadtextBox.Location = new System.Drawing.Point(234, 278);
-            this.CantidadtextBox.Name = "CantidadtextBox";
-            this.CantidadtextBox.Size = new System.Drawing.Size(100, 20);
-            this.CantidadtextBox.TabIndex = 59;
             // 
             // label7
             // 
@@ -195,6 +188,7 @@
             this.Removerbutton.Text = "Remover";
             this.Removerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -207,35 +201,37 @@
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
             // 
-            // Nuevo2button
+            // Nuevobutton
             // 
-            this.Nuevo2button.Image = global::SegundoParcialEnel.Properties.Resources.new_32;
-            this.Nuevo2button.Location = new System.Drawing.Point(426, 622);
-            this.Nuevo2button.Name = "Nuevo2button";
-            this.Nuevo2button.Size = new System.Drawing.Size(86, 50);
-            this.Nuevo2button.TabIndex = 53;
-            this.Nuevo2button.Text = "Nuevo";
-            this.Nuevo2button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Nuevo2button.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Image = global::SegundoParcialEnel.Properties.Resources.new_32;
+            this.Nuevobutton.Location = new System.Drawing.Point(426, 622);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(86, 50);
+            this.Nuevobutton.TabIndex = 53;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
-            // Guardar2button
+            // Guardarbutton
             // 
-            this.Guardar2button.Image = global::SegundoParcialEnel.Properties.Resources.save_32;
-            this.Guardar2button.Location = new System.Drawing.Point(313, 622);
-            this.Guardar2button.Name = "Guardar2button";
-            this.Guardar2button.Size = new System.Drawing.Size(86, 50);
-            this.Guardar2button.TabIndex = 52;
-            this.Guardar2button.Text = "Guardar";
-            this.Guardar2button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Guardar2button.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Image = global::SegundoParcialEnel.Properties.Resources.save_32;
+            this.Guardarbutton.Location = new System.Drawing.Point(313, 622);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(86, 50);
+            this.Guardarbutton.TabIndex = 52;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
-            // DetalleCotizacionesdataGridView
+            // DetalleMantenimientodataGridView
             // 
-            this.DetalleCotizacionesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetalleCotizacionesdataGridView.Location = new System.Drawing.Point(40, 320);
-            this.DetalleCotizacionesdataGridView.Name = "DetalleCotizacionesdataGridView";
-            this.DetalleCotizacionesdataGridView.Size = new System.Drawing.Size(666, 201);
-            this.DetalleCotizacionesdataGridView.TabIndex = 51;
+            this.DetalleMantenimientodataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DetalleMantenimientodataGridView.Location = new System.Drawing.Point(40, 320);
+            this.DetalleMantenimientodataGridView.Name = "DetalleMantenimientodataGridView";
+            this.DetalleMantenimientodataGridView.Size = new System.Drawing.Size(666, 201);
+            this.DetalleMantenimientodataGridView.TabIndex = 51;
             // 
             // Agregarbutton
             // 
@@ -247,6 +243,7 @@
             this.Agregarbutton.Text = "Agregar";
             this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // label9
             // 
@@ -263,11 +260,12 @@
             this.SubTotaltextBox.Name = "SubTotaltextBox";
             this.SubTotaltextBox.Size = new System.Drawing.Size(100, 20);
             this.SubTotaltextBox.TabIndex = 65;
+            this.SubTotaltextBox.TextChanged += new System.EventHandler(this.SubTotaltextBox_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(481, 560);
+            this.label10.Location = new System.Drawing.Point(481, 586);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 66;
@@ -275,51 +273,89 @@
             // 
             // TotaltextBox
             // 
-            this.TotaltextBox.Location = new System.Drawing.Point(547, 553);
+            this.TotaltextBox.Location = new System.Drawing.Point(547, 579);
             this.TotaltextBox.Name = "TotaltextBox";
             this.TotaltextBox.Size = new System.Drawing.Size(100, 20);
             this.TotaltextBox.TabIndex = 67;
             // 
-            // comboBox1
+            // TallercomboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 205);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 21);
-            this.comboBox1.TabIndex = 68;
+            this.TallercomboBox.FormattingEnabled = true;
+            this.TallercomboBox.Location = new System.Drawing.Point(118, 205);
+            this.TallercomboBox.Name = "TallercomboBox";
+            this.TallercomboBox.Size = new System.Drawing.Size(255, 21);
+            this.TallercomboBox.TabIndex = 68;
             // 
-            // comboBox2
+            // ArticulocomboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 278);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 21);
-            this.comboBox2.TabIndex = 69;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.ArticulocomboBox.FormattingEnabled = true;
+            this.ArticulocomboBox.Location = new System.Drawing.Point(12, 278);
+            this.ArticulocomboBox.Name = "ArticulocomboBox";
+            this.ArticulocomboBox.Size = new System.Drawing.Size(201, 21);
+            this.ArticulocomboBox.TabIndex = 69;
+            this.ArticulocomboBox.SelectedIndexChanged += new System.EventHandler(this.ArticulocomboBox_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(480, 553);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "ITBIS";
+            // 
+            // CantidadnumericUpDown
+            // 
+            this.CantidadnumericUpDown.Location = new System.Drawing.Point(245, 278);
+            this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
+            this.CantidadnumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.CantidadnumericUpDown.TabIndex = 71;
+            this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
+            // 
+            // PrecionumericUpDown
+            // 
+            this.PrecionumericUpDown.Location = new System.Drawing.Point(392, 279);
+            this.PrecionumericUpDown.Name = "PrecionumericUpDown";
+            this.PrecionumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.PrecionumericUpDown.TabIndex = 72;
+            this.PrecionumericUpDown.ValueChanged += new System.EventHandler(this.PrecionumericUpDown_ValueChanged);
+            // 
+            // ITBIStextBox
+            // 
+            this.ITBIStextBox.Location = new System.Drawing.Point(547, 553);
+            this.ITBIStextBox.Name = "ITBIStextBox";
+            this.ITBIStextBox.Size = new System.Drawing.Size(100, 20);
+            this.ITBIStextBox.TabIndex = 73;
+            // 
+            // ValidarerrorProvider
+            // 
+            this.ValidarerrorProvider.ContainerControl = this;
             // 
             // RegistroMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 711);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.ITBIStextBox);
+            this.Controls.Add(this.PrecionumericUpDown);
+            this.Controls.Add(this.CantidadnumericUpDown);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.ArticulocomboBox);
+            this.Controls.Add(this.TallercomboBox);
             this.Controls.Add(this.TotaltextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.SubTotaltextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ImportetextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.PreciotextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.CantidadtextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Removerbutton);
             this.Controls.Add(this.Eliminarbutton);
-            this.Controls.Add(this.Nuevo2button);
-            this.Controls.Add(this.Guardar2button);
-            this.Controls.Add(this.DetalleCotizacionesdataGridView);
+            this.Controls.Add(this.Nuevobutton);
+            this.Controls.Add(this.Guardarbutton);
+            this.Controls.Add(this.DetalleMantenimientodataGridView);
             this.Controls.Add(this.Agregarbutton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.VehiculocomboBox);
@@ -332,7 +368,10 @@
             this.Name = "RegistroMantenimiento";
             this.Text = "RegistroMantenimiento";
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIDnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DetalleCotizacionesdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleMantenimientodataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ValidarerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,22 +389,25 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox ImportetextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox PreciotextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox CantidadtextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button Removerbutton;
         private System.Windows.Forms.Button Eliminarbutton;
-        private System.Windows.Forms.Button Nuevo2button;
-        private System.Windows.Forms.Button Guardar2button;
-        private System.Windows.Forms.DataGridView DetalleCotizacionesdataGridView;
+        private System.Windows.Forms.Button Nuevobutton;
+        private System.Windows.Forms.Button Guardarbutton;
+        private System.Windows.Forms.DataGridView DetalleMantenimientodataGridView;
         private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox SubTotaltextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TotaltextBox;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox TallercomboBox;
+        private System.Windows.Forms.ComboBox ArticulocomboBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown CantidadnumericUpDown;
+        private System.Windows.Forms.NumericUpDown PrecionumericUpDown;
+        private System.Windows.Forms.TextBox ITBIStextBox;
+        private System.Windows.Forms.ErrorProvider ValidarerrorProvider;
     }
 }

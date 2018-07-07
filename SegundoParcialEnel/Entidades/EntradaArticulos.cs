@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace SegundoParcialEnel.Entidades
 {
    public class EntradaArticulos
     {
+        [Key]
         public int EntradaID { get; set; }
         public DateTime Fecha { get; set; }
         public string Articulo { get; set; }

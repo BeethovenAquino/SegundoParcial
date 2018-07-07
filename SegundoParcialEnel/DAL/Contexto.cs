@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SegundoParcialEnel.DAL
 {
-    class Contexto : DbContext
+    public class Contexto : DbContext
     {
         public DbSet<Mantenimiento> Mantenimiento { get; set; }
         public DbSet<Vehiculos>  Vehiculo{ get; set; }

@@ -21,13 +21,13 @@ namespace SegundoParcialEnel.UI.Regristro
         {
 
             Articulos articulo = new Articulos();
-
+            InventariotextBox.Text = 0.ToString();
             articulo.ArticuloID = Convert.ToInt32(ArticuloIDnumericUpDown.Value);
             articulo.Descripcion = DescripciontextBox.Text;
             articulo.Costo = Convert.ToInt32(CostonumericUpDown.Value);
             articulo.Precio = Convert.ToInt32(PrecionumericUpDown.Value);
-            articulo.Ganancia = Convert.ToInt32(GananciatextBox.Text);
-            articulo.Inventario = InventariotextBox.Text;
+            articulo.Ganancia = Convert.ToInt32(GanancianumericUpDown.Value);
+            articulo.Inventario = Convert.ToInt32(InventariotextBox.Text);
 
             return articulo;
         }
@@ -91,7 +91,7 @@ namespace SegundoParcialEnel.UI.Regristro
                 DescripciontextBox.Clear();
                 CostonumericUpDown.Value = 0;
                 PrecionumericUpDown.Value = 0;
-                GananciatextBox.Clear();
+                GanancianumericUpDown.Value=0;
                 InventariotextBox.Clear();
                 errorProvider.Clear();
             }
@@ -105,7 +105,7 @@ namespace SegundoParcialEnel.UI.Regristro
             DescripciontextBox.Clear();
             CostonumericUpDown.Value = 0;
             PrecionumericUpDown.Value = 0;
-            GananciatextBox.Clear();
+            GanancianumericUpDown.Value = 0;
             InventariotextBox.Clear();
             errorProvider.Clear();
         }
@@ -129,7 +129,7 @@ namespace SegundoParcialEnel.UI.Regristro
                 DescripciontextBox.Clear();
                 CostonumericUpDown.Value = 0;
                 PrecionumericUpDown.Value = 0;
-                GananciatextBox.Clear();
+                GanancianumericUpDown.Value = 0;
                 InventariotextBox.Clear();
                 errorProvider.Clear();
             }
@@ -157,11 +157,26 @@ namespace SegundoParcialEnel.UI.Regristro
                 DescripciontextBox.Text = articulo.Descripcion;
                 CostonumericUpDown.Value = articulo.Costo;
                 PrecionumericUpDown.Value = articulo.Precio;
-                GananciatextBox.Text = articulo.Ganancia.ToString();
-                InventariotextBox.Text = articulo.Inventario; 
+                GanancianumericUpDown.Value = articulo.Ganancia;
+                InventariotextBox.Text = articulo.Inventario.ToString(); 
             }
             else
                 MessageBox.Show("No se encontro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void GananciatextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void PrecionumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (CostonumericUpDown.Value != 0 && PrecionumericUpDown.Value != 0)
+            {
+
+                GanancianumericUpDown.Text = Convert.ToString(CostonumericUpDown.Value / PrecionumericUpDown.Value * 100);
+
+            }
         }
     }
  }

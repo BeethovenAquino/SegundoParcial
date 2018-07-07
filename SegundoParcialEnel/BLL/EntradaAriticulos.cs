@@ -20,6 +20,13 @@ namespace SegundoParcialEnel.BLL
             {
                 if (contexto.EntradaArticulos.Add(entradaAriticulos) != null)
                 {
+                    foreach (var item in BLL.ArticulosBLL.GetList(x => x.Descripcion == entradaAriticulos.Articulo))
+                    {
+                        contexto.Articulos.Find(item.ArticuloID).Inventario += entradaAriticulos.Cantidad;
+
+                    }
+
+
                     contexto.SaveChanges();
                     paso = true;
                 }

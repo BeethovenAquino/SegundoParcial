@@ -31,13 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.VehiculoIDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.DescripciontextBox = new System.Windows.Forms.TextBox();
-            this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.PrecionumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.TotalMantenimientotextBox = new System.Windows.Forms.TextBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
@@ -45,8 +41,6 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VehiculoIDnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,28 +62,10 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 147);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Cantidad";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 199);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Precio";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 240);
+            this.label5.Location = new System.Drawing.Point(37, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 4;
@@ -110,23 +86,9 @@
             this.DescripciontextBox.Size = new System.Drawing.Size(131, 65);
             this.DescripciontextBox.TabIndex = 6;
             // 
-            // CantidadnumericUpDown
-            // 
-            this.CantidadnumericUpDown.Location = new System.Drawing.Point(101, 147);
-            this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
-            this.CantidadnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.CantidadnumericUpDown.TabIndex = 7;
-            // 
-            // PrecionumericUpDown
-            // 
-            this.PrecionumericUpDown.Location = new System.Drawing.Point(101, 192);
-            this.PrecionumericUpDown.Name = "PrecionumericUpDown";
-            this.PrecionumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.PrecionumericUpDown.TabIndex = 8;
-            // 
             // TotalMantenimientotextBox
             // 
-            this.TotalMantenimientotextBox.Location = new System.Drawing.Point(155, 237);
+            this.TotalMantenimientotextBox.Location = new System.Drawing.Point(146, 152);
             this.TotalMantenimientotextBox.Name = "TotalMantenimientotextBox";
             this.TotalMantenimientotextBox.ReadOnly = true;
             this.TotalMantenimientotextBox.Size = new System.Drawing.Size(100, 20);
@@ -147,7 +109,7 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::SegundoParcialEnel.Properties.Resources.borrar_32;
-            this.Eliminarbutton.Location = new System.Drawing.Point(277, 320);
+            this.Eliminarbutton.Location = new System.Drawing.Point(262, 210);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(83, 64);
             this.Eliminarbutton.TabIndex = 23;
@@ -159,7 +121,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::SegundoParcialEnel.Properties.Resources.new_32;
-            this.Nuevobutton.Location = new System.Drawing.Point(187, 320);
+            this.Nuevobutton.Location = new System.Drawing.Point(172, 210);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(83, 64);
             this.Nuevobutton.TabIndex = 22;
@@ -171,7 +133,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::SegundoParcialEnel.Properties.Resources.save_32;
-            this.Guardarbutton.Location = new System.Drawing.Point(94, 320);
+            this.Guardarbutton.Location = new System.Drawing.Point(79, 210);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(83, 64);
             this.Guardarbutton.TabIndex = 21;
@@ -195,20 +157,14 @@
             this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.TotalMantenimientotextBox);
-            this.Controls.Add(this.PrecionumericUpDown);
-            this.Controls.Add(this.CantidadnumericUpDown);
             this.Controls.Add(this.DescripciontextBox);
             this.Controls.Add(this.VehiculoIDnumericUpDown);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RegistroVehiculos";
             this.Text = "RegistroVehiculos";
             ((System.ComponentModel.ISupportInitialize)(this.VehiculoIDnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,13 +175,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown VehiculoIDnumericUpDown;
         private System.Windows.Forms.TextBox DescripciontextBox;
-        private System.Windows.Forms.NumericUpDown CantidadnumericUpDown;
-        private System.Windows.Forms.NumericUpDown PrecionumericUpDown;
         private System.Windows.Forms.TextBox TotalMantenimientotextBox;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.Button Eliminarbutton;

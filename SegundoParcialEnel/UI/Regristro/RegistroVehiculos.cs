@@ -22,11 +22,10 @@ namespace SegundoParcialEnel.UI.Regristro
 
             Vehiculos vehiculo = new Vehiculos();
 
+            TotalMantenimientotextBox.Text = 0.ToString(); 
             vehiculo.VehiculoID = Convert.ToInt32(VehiculoIDnumericUpDown.Value);
             vehiculo.Descripcion = DescripciontextBox.Text;
-            vehiculo.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
-            vehiculo.Precio = Convert.ToInt32(PrecionumericUpDown.Value);
-            vehiculo.TotalMantenimiento = Convert.ToInt32(TotalMantenimientotextBox.Text);
+            vehiculo.TotalMantenimiento = Convert.ToDecimal(TotalMantenimientotextBox.Text);
            
 
             return vehiculo;
@@ -47,19 +46,7 @@ namespace SegundoParcialEnel.UI.Regristro
                 paso = true;
             }
 
-            if (validar == 2 && CantidadnumericUpDown.Value == 0)
-            {
-
-                errorProvider.SetError(CantidadnumericUpDown, "Ingrese una Cantidad");
-                paso = true;
-            }
-
-            if (validar == 2 && PrecionumericUpDown.Value == 0)
-            {
-
-                errorProvider.SetError(PrecionumericUpDown, "Ingrese un precio");
-                paso = true;
-            }
+            
 
             return paso;
 
@@ -90,8 +77,6 @@ namespace SegundoParcialEnel.UI.Regristro
                 MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 VehiculoIDnumericUpDown.Value = 0;
                 DescripciontextBox.Clear();
-                CantidadnumericUpDown.Value = 0;
-                PrecionumericUpDown.Value = 0;
                 TotalMantenimientotextBox.Clear();
                 errorProvider.Clear();
             }
@@ -103,8 +88,6 @@ namespace SegundoParcialEnel.UI.Regristro
         {
             VehiculoIDnumericUpDown.Value = 0;
             DescripciontextBox.Clear();
-            CantidadnumericUpDown.Value = 0;
-            PrecionumericUpDown.Value = 0;
             TotalMantenimientotextBox.Clear();
             errorProvider.Clear();
         }
@@ -124,8 +107,6 @@ namespace SegundoParcialEnel.UI.Regristro
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 VehiculoIDnumericUpDown.Value = 0;
                 DescripciontextBox.Clear();
-                CantidadnumericUpDown.Value = 0;
-                PrecionumericUpDown.Value = 0;
                 TotalMantenimientotextBox.Clear();
                 errorProvider.Clear();
             }
@@ -150,8 +131,6 @@ namespace SegundoParcialEnel.UI.Regristro
             {
 
                 DescripciontextBox.Text = vehiculo.Descripcion;
-                CantidadnumericUpDown.Value = vehiculo.Cantidad;
-                PrecionumericUpDown.Value = vehiculo.Precio;
                 TotalMantenimientotextBox.Text = vehiculo.TotalMantenimiento.ToString();
              
             }

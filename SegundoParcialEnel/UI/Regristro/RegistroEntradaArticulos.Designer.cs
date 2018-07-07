@@ -160,6 +160,7 @@
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.CantidadnumericUpDown.TabIndex = 32;
+            this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
             // 
             // errorProvider
             // 
@@ -184,6 +185,7 @@
             this.Controls.Add(this.Guardarbutton);
             this.Name = "RegistroEntradaArticulos";
             this.Text = "RegistroEntradaArticulos";
+            this.Load += new System.EventHandler(this.RegistroEntradaArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EntradaIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

@@ -14,72 +14,56 @@ namespace SegundoParcialEnel.BLL
         public static bool Guardar(Mantenimiento mantenimiento)
         {
             bool paso = false;
-            Contexto contexto = new Contexto();
 
+            Contexto contexto = new Contexto();
             try
             {
                 if (contexto.Mantenimiento.Add(mantenimiento) != null)
                 {
-                    contexto.SaveChanges();
+                    foreach (var item in mantenimiento.Detalle)
+                    {
+                        contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
+                    }
+
+                    contexto.SaveChanges(); //Guardar los cambios
                     paso = true;
                 }
+                //siempre hay que cerrar la conexion
                 contexto.Dispose();
-
             }
             catch (Exception)
             {
                 throw;
             }
             return paso;
-
-        }
-
-        public static bool Modificar(Mantenimiento mantenimiento)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                contexto.Entry(mantenimiento).State = EntityState.Modified;
-                if (contexto.SaveChanges() > 0)
-                {
-                    paso = true;
-                }
-                contexto.Dispose();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-
         }
 
         public static bool Eliminar(int id)
         {
             bool paso = false;
+
             Contexto contexto = new Contexto();
             try
             {
                 Mantenimiento mantenimiento = contexto.Mantenimiento.Find(id);
 
-                if (mantenimiento != null)
+                foreach (var item in mantenimiento.Detalle)
                 {
-                    contexto.Entry(mantenimiento).State = EntityState.Deleted;
+                    var ciudad = contexto.Articulos.Find(item.ArticuloID);
+                    ciudad.Inventario += item.Cantidad;
                 }
+
+                contexto.Mantenimiento.Remove(mantenimiento);
 
                 if (contexto.SaveChanges() > 0)
                 {
-                    contexto.Dispose();
                     paso = true;
                 }
-
-
+                contexto.Dispose();
             }
             catch (Exception)
             {
+
                 throw;
             }
             return paso;
@@ -92,31 +76,110 @@ namespace SegundoParcialEnel.BLL
             try
             {
                 mantenimiento = contexto.Mantenimiento.Find(id);
-                contexto.Dispose();
+                if (mantenimiento != null)
+                {
+                    //Cargar la lista en este punto porque
+                    //luego de hacer Dispose() el Contexto 
+                    //no sera posible leer la lista
+                    mantenimiento.Detalle.Count();
+
+                    //Cargar los nombres de las ciudades
+                    foreach (var item in mantenimiento.Detalle)
+                    {
+                        //forzando la ciudad a cargarse
+                        string s = item.Articulos.Descripcion;
+                    }
+
+                    contexto.Dispose();
+                }
             }
             catch (Exception)
             {
+
                 throw;
             }
+
             return mantenimiento;
         }
 
-        public static List<Mantenimiento> GetList(Expression<Func<Mantenimiento, bool>> expression)
+
+
+    
+
+             public static List<Mantenimiento> GetList(Expression<Func<Mantenimiento, bool>> expression)
+            {
+                List<Mantenimiento> mantenimientos = new List<Mantenimiento>();
+                Contexto contexto = new Contexto();
+                try
+                {
+                    mantenimientos = contexto.Mantenimiento.Where(expression).ToList();
+                    contexto.Dispose();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+                return mantenimientos;
+            }
+
+        public static bool Modificar(Mantenimiento mantenimiento)
         {
-            List<Mantenimiento> mantenimiento = new List<Mantenimiento>();
+            bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-                mantenimiento = contexto.Mantenimiento.Where(expression).ToList();
+                //todo: buscar las entidades que no estan para removerlas
+                var visitaant = MantenimientoBLL.Buscar(mantenimiento.MantenimientoID);
+
+                foreach (var item in visitaant.Detalle)//recorrer el detalle aterior
+                {
+                    //restar todas las visitas
+                    contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
+
+                    //determinar si el item no esta en el detalle actual
+                    if (!mantenimiento.Detalle.ToList().Exists(v => v.ID == item.ID))
+                    {
+                        contexto.Articulos.Find(item.ArticuloID).Inventario += item.Cantidad;
+                        item.Articulos = null; //quitar la ciudad para que EF no intente hacerle nada
+                        contexto.Entry(item).State = EntityState.Deleted;
+                    }
+                }
+
+                //recorrer el detalle
+                foreach (var item in mantenimiento.Detalle)
+                {
+                    //Sumar todas las visitas
+                    contexto.Articulos.Find(item.ArticuloID).Inventario += item.Cantidad;
+
+                    //Muy importante indicar que pasara con la entidad del detalle
+                    var estado = item.ID > 0 ? EntityState.Modified : EntityState.Added;
+                    contexto.Entry(item).State = estado;
+                }
+
+                //Idicar que se esta modificando el encabezado
+                contexto.Entry(mantenimiento).State = EntityState.Modified;
+
+                if (contexto.SaveChanges() > 0)
+                {
+                    paso = true;
+                }
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return mantenimiento;
+            return paso;
         }
 
-        
+        public static decimal CalcularImporte(decimal precio, int cantidad)
+        {
+            return Convert.ToDecimal(precio) * Convert.ToInt32(cantidad);
+        }
+
+
+
     }
 }

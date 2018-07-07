@@ -6,8 +6,7 @@ using System.Text;
 
 namespace SegundoParcialEnel.DAL
 {
-    public class IRepositorio
-    {
+    
         public interface IRepositorios<T> where T : class
         {
             List<T> GetList(Expression<Func<T, bool>> expression);
@@ -16,5 +15,5 @@ namespace SegundoParcialEnel.DAL
             bool Modificar(T entity);
             bool Eliminar(int id);
         }
-    }
+    
 }

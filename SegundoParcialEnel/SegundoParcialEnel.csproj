@@ -64,11 +64,11 @@
     <Compile Include="Entidades\MatenimientoDetalle.cs" />
     <Compile Include="Entidades\Taller.cs" />
     <Compile Include="Entidades\Vehiculos.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,8 +114,8 @@
     <Compile Include="UI\Regristro\RegistroVehiculos.Designer.cs">
       <DependentUpon>RegistroVehiculos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,7 +160,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\new_32.png" />
     <None Include="Resources\imprimir_32.png" />
@@ -169,7 +168,10 @@
     <None Include="Resources\Add_32.png" />
     <None Include="Resources\buscar2.png" />
     <None Include="Resources\Remover_32.png" />
-    <Content Include="DAL\Script\Sql.sql" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DAL\Script\Scripts.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
