@@ -5,7 +5,12 @@ GO
 create table Mantenimientoes(
 
 	  MantenimientoID int primary key identity(1,1),
-        Fecha date
+         VehiculoID int,
+         Fecha date,
+         Subtotal money,
+         itbis money,
+         Total money
+
 	
 	
 );

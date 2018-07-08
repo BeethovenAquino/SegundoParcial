@@ -26,7 +26,7 @@ namespace SegundoParcialEnel.BLL
                         contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
                     }
 
-                   // contexto.Vehiculo.Find(mantenimiento.VehiculoID).Mantenimiento += registrodeMantenimiento.Total;
+                    //contexto.Vehiculo.Find(mantenimiento.VehiculoID).TotalMantenimiento += mantenimiento.Total;
                     contexto.SaveChanges(); //Guardar los cambios
                     paso = true;
                 }

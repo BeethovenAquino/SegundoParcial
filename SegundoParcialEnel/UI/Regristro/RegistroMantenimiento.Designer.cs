@@ -59,6 +59,8 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ProximadateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleMantenimientodataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
@@ -333,12 +335,30 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(345, 97);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 13);
+            this.label12.TabIndex = 74;
+            this.label12.Text = "Proximo Mantenimiento";
+            // 
+            // ProximadateTimePicker
+            // 
+            this.ProximadateTimePicker.Location = new System.Drawing.Point(470, 91);
+            this.ProximadateTimePicker.Name = "ProximadateTimePicker";
+            this.ProximadateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.ProximadateTimePicker.TabIndex = 75;
+            // 
             // RegistroMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SegundoParcialEnel.Properties.Resources.Fondo;
             this.ClientSize = new System.Drawing.Size(800, 711);
+            this.Controls.Add(this.ProximadateTimePicker);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.ITBIStextBox);
             this.Controls.Add(this.PrecionumericUpDown);
             this.Controls.Add(this.CantidadnumericUpDown);
@@ -370,6 +390,7 @@
             this.Controls.Add(this.Buscarbutton);
             this.Name = "RegistroMantenimiento";
             this.Text = "RegistroMantenimiento";
+            this.Load += new System.EventHandler(this.RegistroMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MantenimientoIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleMantenimientodataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
@@ -412,5 +433,7 @@
         private System.Windows.Forms.NumericUpDown PrecionumericUpDown;
         private System.Windows.Forms.TextBox ITBIStextBox;
         private System.Windows.Forms.ErrorProvider ValidarerrorProvider;
+        private System.Windows.Forms.DateTimePicker ProximadateTimePicker;
+        private System.Windows.Forms.Label label12;
     }
 }

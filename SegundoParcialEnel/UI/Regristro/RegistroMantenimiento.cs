@@ -172,6 +172,13 @@ namespace SegundoParcialEnel.UI.Regristro
                 mantenimiento.Detalle = (List<MatenimientoDetalle>)DetalleMantenimientodataGridView.DataSource;
             }
 
+            foreach (var item in BLL.ArticulosBLL.GetList(x => x.Inventario < CantidadnumericUpDown.Value))
+            {
+
+                MessageBox.Show("No Tenemos Arituculos ", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             mantenimiento.Detalle.Add(
                 new MatenimientoDetalle(iD: 0,
                 mantenimientoID: (int)Convert.ToInt32(MantenimientoIDnumericUpDown.Value),
@@ -187,6 +194,20 @@ namespace SegundoParcialEnel.UI.Regristro
 
             DetalleMantenimientodataGridView.DataSource = null;
             DetalleMantenimientodataGridView.DataSource = mantenimiento.Detalle;
+
+            if (MantenimientoIDnumericUpDown.Value != 0)
+            {
+
+                subtotal += importe;
+                SubTotaltextBox.Text = subtotal.ToString();
+            }
+            else
+            {
+
+                subtotal = importe;
+                SubTotaltextBox.Text = subtotal.ToString();
+            }
+
 
 
             subtotal += Convert.ToDecimal(ImportetextBox.Text);
@@ -374,6 +395,15 @@ namespace SegundoParcialEnel.UI.Regristro
             else
                 MessageBox.Show("No se encontro!", "Fallo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void RegistroMantenimiento_Load(object sender, EventArgs e)
+        {
+
+            DateTime fecha = Convert.ToDateTime(ProximadateTimePicker.Text);
+            fecha = fecha.AddDays(90);
+
+            ProximadateTimePicker.Text = fecha.ToString();
         }
     }
 }

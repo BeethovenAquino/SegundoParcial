@@ -11,8 +11,13 @@ namespace SegundoParcialEnel.Entidades
     {
         [Key]
         public int MantenimientoID { get; set; }
+        public int VehiculoID { get; set; }
         public DateTime Fecha { get; set; }
- 
+        public decimal Subtotal { get; set; }
+        public decimal itbis { get; set; }
+        public decimal Total { get; set; }
+
+
 
         public virtual ICollection<MatenimientoDetalle> Detalle { get; set; }
 
@@ -20,7 +25,13 @@ namespace SegundoParcialEnel.Entidades
         public Mantenimiento()
         {
             this.Detalle = new List<MatenimientoDetalle>();
-            
+
+            MantenimientoID = 0;
+            Fecha = DateTime.Now;
+            Subtotal = 0;
+            itbis = 0;
+            Total = 0;
+
 
         }
 
