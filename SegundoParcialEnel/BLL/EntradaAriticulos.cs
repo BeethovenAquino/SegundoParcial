@@ -22,7 +22,8 @@ namespace SegundoParcialEnel.BLL
                 {
                     foreach (var item in BLL.ArticulosBLL.GetList(x => x.Descripcion == entradaAriticulos.Articulo))
                     {
-                        contexto.Articulos.Find(item.ArticuloID).Inventario += entradaAriticulos.Cantidad;
+                       var Articulo= contexto.Articulos.Find(item.ArticuloID);
+                        Articulo.Inventario += entradaAriticulos.Cantidad;
 
                     }
 
@@ -45,6 +46,12 @@ namespace SegundoParcialEnel.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+
+            EntradaAriticulos entradaAnterior = new EntradaAriticulos();
+
+            int restar;
+
+            //restar= entradaAriticulos.Cantidad- 
 
             try
             {

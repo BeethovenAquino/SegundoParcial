@@ -16,7 +16,7 @@ namespace SegundoParcialEnel.BLL
             bool paso = false;
 
             Contexto contexto = new Contexto();
-            Vehiculos vehiculos = new Vehiculos();
+            MatenimientoDetalle matenimientoDetalle = new MatenimientoDetalle();
             try
             {
                 if (contexto.Mantenimiento.Add(mantenimiento) != null)
@@ -26,7 +26,7 @@ namespace SegundoParcialEnel.BLL
                         contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
                     }
 
-                    //contexto.Vehiculo.Find(mantenimiento.VehiculoID).TotalMantenimiento += mantenimiento.Total;
+                   contexto.Vehiculo.Find(matenimientoDetalle.VehiculoID).TotalMantenimiento += mantenimiento.Total;
                     contexto.SaveChanges(); //Guardar los cambios
                     paso = true;
                 }

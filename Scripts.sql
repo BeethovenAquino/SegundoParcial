@@ -40,7 +40,7 @@ create table EntradaArticulos(
 );
 go
 go
-Create table Articulos(
+create table Articulos(
 	  ArticuloID int primary key identity(1,1),
         Descripcion varchar(max),
        Costo int,
@@ -70,3 +70,4 @@ go
 
 select *From Mantenimientoes
 select *From MatenimientoDetalles
+select *From Vehiculos

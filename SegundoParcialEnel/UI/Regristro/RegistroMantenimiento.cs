@@ -178,19 +178,26 @@ namespace SegundoParcialEnel.UI.Regristro
                 MessageBox.Show("No Tenemos Arituculos ", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (string.IsNullOrEmpty(ImportetextBox.Text)) {
+                MessageBox.Show("Llene la  cantidad","Validar", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            mantenimiento.Detalle.Add(
-                new MatenimientoDetalle(iD: 0,
-                mantenimientoID: (int)Convert.ToInt32(MantenimientoIDnumericUpDown.Value),
-                articuloID: (int)Convert.ToInt32(ArticulocomboBox.SelectedValue),
-                vehiculoID: (int)Convert.ToInt32(VehiculocomboBox.SelectedValue),
-                tallerID: (int)Convert.ToInt32(TallercomboBox.SelectedValue),
-                cantidad: (int)Convert.ToInt32(CantidadnumericUpDown.Value),
-                precio: (decimal)Convert.ToDecimal(PrecionumericUpDown.Value),
-                importe: (decimal)Convert.ToDecimal(ImportetextBox.Text)
+            }
+            else {
+                mantenimiento.Detalle.Add(
+                   new MatenimientoDetalle(iD: 0,
+                   mantenimientoID: (int)Convert.ToInt32(MantenimientoIDnumericUpDown.Value),
+                   articuloID: (int)Convert.ToInt32(ArticulocomboBox.SelectedValue),
+                   vehiculoID: (int)Convert.ToInt32(VehiculocomboBox.SelectedValue),
+                   tallerID: (int)Convert.ToInt32(TallercomboBox.SelectedValue),
+                   cantidad: (int)Convert.ToInt32(CantidadnumericUpDown.Value),
+                   precio: (decimal)Convert.ToDecimal(PrecionumericUpDown.Value),
+                   importe: (decimal)Convert.ToDecimal(ImportetextBox.Text)
 
 
-                    ));
+                       ));
+            }
+
+           
 
             DetalleMantenimientodataGridView.DataSource = null;
             DetalleMantenimientodataGridView.DataSource = mantenimiento.Detalle;
