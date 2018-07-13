@@ -18,9 +18,7 @@ namespace SegundoParcialEnel.Entidades
         public decimal Total { get; set; }
 
 
-
         public virtual ICollection<MatenimientoDetalle> Detalle { get; set; }
-
 
         public Mantenimiento()
         {
@@ -32,18 +30,13 @@ namespace SegundoParcialEnel.Entidades
             itbis = 0;
             Total = 0;
 
-
         }
 
-        public Mantenimiento(int mantenimientoID, DateTime fecha)
+
+
+        public void AgregarDetalle(int id, int MantenimientoID, int tallerID, int articulosID,string articulo,  int cantidad, decimal precio, decimal importe)
         {
-            MantenimientoID = mantenimientoID;
-            Fecha = fecha;
-  
-        }
-
-        public void agregarDetalle(int iD, int mantenimientoID, int articuloID, int vehiculoID, int tallerID, int cantidad, decimal precio, decimal importe) {
-            this.Detalle.Add(new MatenimientoDetalle( iD, mantenimientoID, articuloID,vehiculoID, tallerID, cantidad,precio,importe));
+            this.Detalle.Add(new MatenimientoDetalle(id, MantenimientoID, tallerID, articulosID, articulo, cantidad, precio, importe));
         }
     }
 }

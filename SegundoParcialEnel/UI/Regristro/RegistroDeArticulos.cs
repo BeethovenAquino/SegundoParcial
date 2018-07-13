@@ -166,9 +166,12 @@ namespace SegundoParcialEnel.UI.Regristro
 
         private void GananciatextBox_TextChanged(object sender, EventArgs e)
         {
-            PrecionumericUpDown.Value -= Convert.ToInt32(CostonumericUpDown);
+            if (CostonumericUpDown.Value != 0 && GanancianumericUpDown.Value != 0)
+            {
 
-            PrecionumericUpDown.Value= (Convert.ToDecimal(PrecionumericUpDown) / Convert.ToInt32(CostonumericUpDown)) * 100;
+                PrecionumericUpDown.Value = Convert.ToInt32(GanancianumericUpDown.Value) * Convert.ToInt32(CostonumericUpDown.Value) + CostonumericUpDown.Value;
+
+            }
 
         }
 
@@ -177,7 +180,7 @@ namespace SegundoParcialEnel.UI.Regristro
             if (CostonumericUpDown.Value != 0 && PrecionumericUpDown.Value != 0)
             {
 
-                GanancianumericUpDown.Text = Convert.ToString(CostonumericUpDown.Value / PrecionumericUpDown.Value * 100);
+                GanancianumericUpDown.Value = Convert.ToDecimal(PrecionumericUpDown.Value) - Convert.ToInt32(CostonumericUpDown.Value) / CostonumericUpDown.Value;
 
             }
         }
@@ -186,10 +189,12 @@ namespace SegundoParcialEnel.UI.Regristro
         {
             if (PrecionumericUpDown.Value != 0 && GanancianumericUpDown.Value != 0)
             {
-                GanancianumericUpDown.Value /= 100;
 
-              CostonumericUpDown.Value=  Convert.ToDecimal(PrecionumericUpDown.Value) * Convert.ToInt32(GanancianumericUpDown.Value);
+                
+
             }
+
+
         }
     }
  }

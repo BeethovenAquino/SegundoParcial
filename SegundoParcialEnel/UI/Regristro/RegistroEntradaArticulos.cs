@@ -38,7 +38,7 @@ namespace SegundoParcialEnel.UI.Regristro
             articulo.Fecha = FechadateTimePicker.Value=DateTime.Now;
             articulo.Articulo = ArticulocomboBox.Text;
             articulo.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
-            
+            articulo.ArticuloID = Convert.ToInt32(ArticulocomboBox.SelectedValue);
 
             return articulo;
         }

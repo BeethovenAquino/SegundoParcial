@@ -20,12 +20,9 @@ namespace SegundoParcialEnel.BLL
             {
                 if (contexto.EntradaArticulos.Add(entradaAriticulos) != null)
                 {
-                    foreach (var item in BLL.ArticulosBLL.GetList(x => x.Descripcion == entradaAriticulos.Articulo))
-                    {
-                       var Articulo= contexto.Articulos.Find(item.ArticuloID);
-                        Articulo.Inventario += entradaAriticulos.Cantidad;
-
-                    }
+                    Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
+                    articulo.Inventario += entradaAriticulos.Cantidad;
+                    BLL.ArticulosBLL.Modificar(articulo);
 
 
                     contexto.SaveChanges();
@@ -46,29 +43,38 @@ namespace SegundoParcialEnel.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
-
-            EntradaAriticulos entradaAnterior = new EntradaAriticulos();
-
-            int restar;
-
-            //restar= entradaAriticulos.Cantidad- 
-
             try
             {
+
+                EntradaArticulos EntradaAnterior = BLL.EntradaAriticulos.Buscar(entradaAriticulos.EntradaID);
+
+                //identificar la diferencia ya sea restada o sumada
+                int Restar;
+
+                Restar = entradaAriticulos.Cantidad - EntradaAnterior.Cantidad;
+
+                //aplicar diferencia al inventario
+                Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
+                articulo.Inventario += Restar;
+                BLL.ArticulosBLL.Modificar(articulo);
+
                 contexto.Entry(entradaAriticulos).State = EntityState.Modified;
+
+
+
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
                 }
+
+
+
                 contexto.Dispose();
 
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
+            catch (Exception) { throw; }
 
+            return paso;
         }
 
         public static bool Eliminar(int id)
@@ -79,8 +85,14 @@ namespace SegundoParcialEnel.BLL
             {
                 EntradaArticulos entradaAriticulos = contexto.EntradaArticulos.Find(id);
 
+               
+
                 if (entradaAriticulos != null)
                 {
+                    Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
+                    articulo.Inventario -= entradaAriticulos.Cantidad;
+                    BLL.ArticulosBLL.Modificar(articulo);
+
                     contexto.Entry(entradaAriticulos).State = EntityState.Deleted;
                 }
 

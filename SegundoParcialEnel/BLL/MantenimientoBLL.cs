@@ -14,29 +14,29 @@ namespace SegundoParcialEnel.BLL
         public static bool Guardar(Mantenimiento mantenimiento)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
-            MatenimientoDetalle matenimientoDetalle = new MatenimientoDetalle();
+
+
+            Vehiculos vehiculos = new Vehiculos();
             try
             {
                 if (contexto.Mantenimiento.Add(mantenimiento) != null)
                 {
+
                     foreach (var item in mantenimiento.Detalle)
                     {
-                        contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
+                        contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
                     }
 
-                   contexto.Vehiculo.Find(matenimientoDetalle.VehiculoID).TotalMantenimiento += mantenimiento.Total;
-                    contexto.SaveChanges(); //Guardar los cambios
+
+                    contexto.Vehiculo.Find(mantenimiento.VehiculoID).TotalMantenimiento += mantenimiento.Total;
+
+                    contexto.SaveChanges();
                     paso = true;
                 }
-                //siempre hay que cerrar la conexion
                 contexto.Dispose();
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            catch (Exception) { throw; }
             return paso;
         }
 
@@ -51,11 +51,13 @@ namespace SegundoParcialEnel.BLL
 
                 foreach (var item in mantenimiento.Detalle)
                 {
-                    var articulo = contexto.Articulos.Find(item.ArticuloID);
+                    var articulo = contexto.Articulos.Find(item.ArticulosID);
                     articulo.Inventario += item.Cantidad;
                 }
 
                 contexto.Mantenimiento.Remove(mantenimiento);
+
+                contexto.Vehiculo.Find(mantenimiento.VehiculoID).TotalMantenimiento -= mantenimiento.Total;
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -138,12 +140,12 @@ namespace SegundoParcialEnel.BLL
                 foreach (var item in visitaant.Detalle)//recorrer el detalle aterior
                 {
                     //restar todas las visitas
-                    contexto.Articulos.Find(item.ArticuloID).Inventario += item.Cantidad;
+                    contexto.Articulos.Find(item.ArticulosID).Inventario += item.Cantidad;
 
                     //determinar si el item no esta en el detalle actual
                     if (!mantenimiento.Detalle.ToList().Exists(v => v.ID == item.ID))
                     {
-                        contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
+                     //   contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
                         item.Articulos = null; //quitar la ciudad para que EF no intente hacerle nada
                         contexto.Entry(item).State = EntityState.Deleted;
                     }
@@ -153,12 +155,26 @@ namespace SegundoParcialEnel.BLL
                 foreach (var item in mantenimiento.Detalle)
                 {
                     //Sumar todas las visitas
-                    contexto.Articulos.Find(item.ArticuloID).Inventario -= item.Cantidad;
+                    contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
 
                     //Muy importante indicar que pasara con la entidad del detalle
                     var estado = item.ID > 0 ? EntityState.Modified : EntityState.Added;
                     contexto.Entry(item).State = estado;
                 }
+
+               Mantenimiento EntradaAnterior = BLL.MantenimientoBLL.Buscar(mantenimiento.MantenimientoID);
+
+
+                //identificar la diferencia ya sea restada o sumada
+                decimal diferencia;
+
+                diferencia = mantenimiento.Total - EntradaAnterior.Total;
+
+                //aplicar diferencia al inventario
+                Vehiculos vehiculos = BLL.VehiculosBLL.Buscar(mantenimiento.VehiculoID);
+                vehiculos.TotalMantenimiento += diferencia;
+                BLL.VehiculosBLL.Modificar(vehiculos);
+
 
                 //Idicar que se esta modificando el encabezado
                 contexto.Entry(mantenimiento).State = EntityState.Modified;

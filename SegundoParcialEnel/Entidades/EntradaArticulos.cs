@@ -13,6 +13,8 @@ namespace SegundoParcialEnel.Entidades
         public DateTime Fecha { get; set; }
         public string Articulo { get; set; }
         public int Cantidad { get; set; }
+        public int ArticuloID { get; set; }
+
 
         public EntradaArticulos()
         {

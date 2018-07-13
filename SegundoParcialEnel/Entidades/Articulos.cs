@@ -18,7 +18,15 @@ namespace SegundoParcialEnel.Entidades
 
         public Articulos()
         {
+            ArticuloID = 0;
+            Descripcion = string.Empty;
+            Costo = 0;
+            Precio = 0;
             Ganancia = 0;
+            Inventario = 0;
+            
+            
+
         }
 
         public override string ToString()
